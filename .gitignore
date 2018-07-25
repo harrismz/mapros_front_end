@@ -1,6 +1,3 @@
-.sencha
-build
-ext
 .architect
 bootstrap.css
 bootstrap.js
