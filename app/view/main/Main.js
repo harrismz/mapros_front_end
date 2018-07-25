@@ -75,6 +75,21 @@ Ext.define('Mapros.view.main.Main', {
         }
     },
 
+    dockedItems: [{
+        xtype: 'toolbar',
+        dock: 'top',
+        layout  : {
+            pack: 'end',
+            type: 'hbox'
+        },
+        padding: '26 20',
+        style: 'background:#5FA2DD;',
+        items: [
+            { xtype: 'button', buttonAlign: 'right', text: 'SIGN IN', iconCls: 'fa fa-sign-out fa-2x', scale: 'large' },
+            { xtype: 'button', buttonAlign: 'right', text: 'SIGN OUT', iconCls: 'fa fa-sign-out fa-2x', scale: 'large', hidden: true }
+        ]
+    }],
+
     items: [{
         title: 'Home',
         iconCls: 'fa-home',
