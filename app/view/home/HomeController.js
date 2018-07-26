@@ -4,21 +4,24 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Mapros.view.main.MainController', {
+Ext.define('Mapros.view.home.HomeController', {
     extend: 'Ext.app.ViewController',
 
-    alias: 'controller.main',
+    alias: 'controller.home',
 
-    onItemSelected: function (sender, record) {
-        Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
-    },
+    destroyHome : function() {
+        console.log("berhasil login");
+    }
 
-    onConfirm: function (choice) {
-        if (choice === 'yes') {
-            //
+    listen : {
+        controller : {
+            'home' : { //this is controller alias name
+                //name of the event : //method to trigger here
+                'destroyHome': 'destroyHome'
+            }
         }
     },
-
+/*
     onLogin: function() {
 
         // console.log("Terpanggil");
@@ -26,13 +29,13 @@ Ext.define('Mapros.view.main.MainController', {
 
         // loggedIn = localStorage.getItem("LoggedIn");
 
-        var loginAnimation = Ext.create({
-            xtype: 'login',
-            animateTarget: this.getView().down('button[name=signin]')
-        });
+        // var test = Ext.create({
+        //     xtype: 'login',
+        //     animateTarget: this.getView().down('button[name=signin]')
+        // });
 
-        loginAnimation.show();
-    },
+        // test.show()
+    }
 
     showLogOutButton : function(){
         this.getView().down('button[name=signout]').setVisible(true);
@@ -68,4 +71,5 @@ Ext.define('Mapros.view.main.MainController', {
             xtype: 'app-home'
         });
     }
+*/
 });

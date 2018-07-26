@@ -5,24 +5,27 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
-Ext.define('Mapros.view.main.Main', {
+Ext.define('Mapros.view.home.Home', {
     extend: 'Ext.tab.Panel',
-    xtype: 'app-main',
+    xtype: 'app-home',
 
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
 
+        'Mapros.view.home.HomeModel',
+        'Mapros.view.home.Scanning',
+        'Mapros.view.home.Toolbar',
+        'Mapros.view.login.Login',
+        'Mapros.view.login.LoginController',
+        'Mapros.view.main.Main',
         'Mapros.view.main.MainController',
         'Mapros.view.main.MainModel',
-        'Mapros.view.main.List',
-        'Mapros.view.login.Login'
-        // 'Mapros.view.login.LoginController'
+        'Mapros.view.main.List'
     ],
 
     controller: 'main',
-    viewModel: 'main',
-    // plugins: 'viewport',
+    viewModel: 'home',
 
     ui: 'navigation',
 
@@ -61,7 +64,7 @@ Ext.define('Mapros.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
+        bodyPadding: 10,
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {
@@ -78,70 +81,15 @@ Ext.define('Mapros.view.main.Main', {
         }
     },
 
-    dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        layout  : {
-            pack: 'end',
-            type: 'hbox'
-        },
-        padding: '26 20',
-        style: 'background:#5FA2DD;',
-        items: [
-            {   
-                xtype: 'button',
-                name: 'signin',
-                buttonAlign: 'right',
-                text: 'SIGN IN',
-                iconCls: 'fa fa-sign-out fa-2x',
-                scale: 'large',
-                handler: 'onLogin'
-                
-            },
-            { 
-                xtype: 'button',
-                name: 'signout',
-                buttonAlign: 'right',
-                text: 'SIGN OUT',
-                iconCls: 'fa fa-sign-out fa-2x',
-                scale: 'large',
-                hidden: true,
-                handler: 'onLogout'
-            }
-        ]
-    }],
+    dockedItems: [{ xtype: 'homeToolbar' }],
 
     items: [{
-        title: 'Record Data',
+        title: 'Process Scan',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'mainlist'
+            xtype: 'scanning',
+            height: 600
         }]
-    }, {
-        title: 'Print Ticket',
-        iconCls: 'fa-print',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Line',
-        // icon: 'resources/line.png',
-        iconCls: 'fa-exchange',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Log',
-        iconCls: 'fa-book',
-        bind: {
-            html: '{loremIpsum}'
-        }
     }]
 });

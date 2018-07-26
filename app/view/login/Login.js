@@ -1,5 +1,5 @@
 Ext.define('Mapros.view.login.Login',{
-  extend: 'Ext.panel.Panel',
+  extend: 'Ext.window.Window',
   xtype: 'login',
 
   requires: [
@@ -10,7 +10,7 @@ Ext.define('Mapros.view.login.Login',{
     controller: 'login',
     bodyPadding: 10,
     title: 'Login Window',
-    closable: false,
+    closable: true,
     autoShow: true,
     constrain: true,
 
@@ -35,7 +35,7 @@ Ext.define('Mapros.view.login.Login',{
         }],
         buttons: [{
             text: 'Login',
-            formBind: true,
+            // formBind: true,
             listeners: {
                 click: 'onLoginClick'
             }
