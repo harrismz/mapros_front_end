@@ -16,6 +16,7 @@ Ext.define('Mapros.view.config.Config',{
  //        }
  //    },
  	activeTab: 2,
+
 	tabBar: {
         flex: 1,
         layout: {

@@ -1,9 +1,9 @@
 /**
  * This view is an example list of people.
  */
-Ext.define('Mapros.view.config.user.ListUser', {
+Ext.define('Mapros.view.config.user.List', {
     extend: 'Ext.grid.Panel',
-    xtype: 'listuser',
+    xtype: 'list_user',
 
     requires: [
         'Mapros.store.User'

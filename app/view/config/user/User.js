@@ -6,19 +6,25 @@ Ext.define('Mapros.view.config.user.User',{
 	requires: [
 		'Mapros.view.main.MainModel',
 		'Mapros.view.main.List',
-		'Mapros.view.config.user.ListUser'
+		'Mapros.view.config.user.List',
+		'Mapros.view.config.user.access.List',
+		'Mapros.view.config.user.department.List'
 	],
 
-	// layout: {
- //        type: 'vbox',
- //        pack: 'center',
- //        align: 'center'
- //    },
+	layout: {
+        type: 'anchor'
+    },
+
+    autoScroll: true,
+
  	padding: 10,
+
     items: [{
-    	xtype: 'listuser',
-    	// bind: {
-     //        html: '{loremIpsum}'
-     //    }
+    	xtype: 'list_user',
+    }, {
+    	xtype: 'user_access',
+    	padding: '10 0 0 0'
+    }, {
+    	xtype: 'user_department'
     }]
 });

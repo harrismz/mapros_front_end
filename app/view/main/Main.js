@@ -81,7 +81,7 @@ Ext.define('Mapros.view.main.Main', {
         }
     },
 
-    activeTab: 3,
+    // activeTab: 3,
 
     dockedItems: [{ xtype: 'homeToolbar' }],
 
