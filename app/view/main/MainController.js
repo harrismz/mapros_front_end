@@ -34,38 +34,34 @@ Ext.define('Mapros.view.main.MainController', {
         loginAnimation.show();
     },
 
-    showLogOutButton : function(){
-        this.getView().down('button[name=signout]').setVisible(true);
-        this.getView().down('button[name=signin]').setVisible(false);
-    },
+    // showLogOutButton : function(){
+    //     this.getView().down('button[name=signout]').setVisible(true);
+    //     this.getView().down('button[name=signin]').setVisible(false);
+    // },
 
-    //this is listener. this controller listen to another controller to fire specific event that already 
-    //configured like below
-    listen : {
-        controller : {
-            'login' : { //this is controller alias name
-                //name of the event : //method to trigger here
-                'showLogOutButton': 'showLogOutButton'
-            }
-        }
-    },
+    // //this is listener. this controller listen to another controller to fire specific event that already 
+    // //configured like below
+    // listen : {
+    //     controller : {
+    //         'login' : { //this is controller alias name
+    //             //name of the event : //method to trigger here
+    //             'showLogOutButton': 'showLogOutButton'
+    //         }
+    //     }
+    // },
 
     onLogout: function() {
         // Remove the localStorage key/value
         localStorage.removeItem('LoggedIn');
 
-        // show login button
-        this.getView().down('button[name=signin]').setVisible(true);
-
-        // hide logout button
-        this.getView().down('button[name=signout]').setVisible(false);
-
         // Remove Main View
-        this.getView().destroy();
+        // this.getView().destroy();
 
         // Add the Login Window
         Ext.create({
-            xtype: 'app-home'
+            xtype: 'app-main'
         });
+
+        location.reload();
     }
 });

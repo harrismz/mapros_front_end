@@ -9,6 +9,7 @@ Ext.define('Mapros.view.home.Toolbar',{
         type: 'hbox'
     },
     padding: '26 20',
+
     style: 'background:#5FA2DD;',
 
 	items: [
@@ -20,17 +21,32 @@ Ext.define('Mapros.view.home.Toolbar',{
 	        iconCls: 'fa fa-sign-out fa-2x',
 	        scale: 'large',
 	        handler: 'onLogin'
-	        
-	    },
-	    { 
-	        xtype: 'button',
-	        name: 'signout',
-	        buttonAlign: 'right',
-	        text: 'SIGN OUT',
-	        iconCls: 'fa fa-sign-out fa-2x',
-	        scale: 'large',
-	        hidden: true,
-	        handler: 'onLogout'
 	    }
-	]
+	    // { 
+	    //     xtype: 'button',
+	    //     name: 'signout',
+	    //     buttonAlign: 'right',
+	    //     text: 'SIGN OUT',
+	    //     iconCls: 'fa fa-sign-out fa-2x',
+	    //     scale: 'large',
+	    //     hidden: !this.isLogIn,
+	    //     handler: 'onLogout'
+	    // }
+	],
+
+    initItems : function (){
+    	if(localStorage.getItem("LoggedIn") == "true") {
+    		this.items = [{ 
+		        xtype: 'button',
+		        name: 'signout',
+		        buttonAlign: 'right',
+		        text: 'SIGN OUT',
+		        iconCls: 'fa fa-sign-out fa-2x',
+		        scale: 'large',
+		        handler: 'onLogout'
+		    }]
+    	}
+    	this.callParent();
+    }
+
 });

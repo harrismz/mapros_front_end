@@ -25,5 +25,7 @@ Ext.define('Mapros.view.login.LoginController', {
         Ext.create({
             xtype: 'app-main'
         });
+
+        location.reload();
     }
 });

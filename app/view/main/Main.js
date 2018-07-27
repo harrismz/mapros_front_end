@@ -16,7 +16,9 @@ Ext.define('Mapros.view.main.Main', {
         'Mapros.view.main.MainController',
         'Mapros.view.main.MainModel',
         'Mapros.view.main.List',
-        'Mapros.view.login.Login'
+        'Mapros.view.login.Login',
+        'Mapros.view.home.Scanning',
+        'Mapros.view.home.Toolbar'
         // 'Mapros.view.login.LoginController'
     ],
 
@@ -78,70 +80,97 @@ Ext.define('Mapros.view.main.Main', {
         }
     },
 
-    dockedItems: [{
-        xtype: 'toolbar',
-        dock: 'top',
-        layout  : {
-            pack: 'end',
-            type: 'hbox'
-        },
-        padding: '26 20',
-        style: 'background:#5FA2DD;',
-        items: [
-            {   
-                xtype: 'button',
-                name: 'signin',
-                buttonAlign: 'right',
-                text: 'SIGN IN',
-                iconCls: 'fa fa-sign-out fa-2x',
-                scale: 'large',
-                handler: 'onLogin'
-                
-            },
-            { 
-                xtype: 'button',
-                name: 'signout',
-                buttonAlign: 'right',
-                text: 'SIGN OUT',
-                iconCls: 'fa fa-sign-out fa-2x',
-                scale: 'large',
-                hidden: true,
-                handler: 'onLogout'
-            }
-        ]
-    }],
+    dockedItems: [{ xtype: 'homeToolbar' }],
 
     items: [{
-        title: 'Record Data',
+        title: 'Process Scan',
         iconCls: 'fa-home',
         // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'mainlist'
+            xtype: 'scanning',
+            height: 600
         }]
-    }, {
-        title: 'Print Ticket',
-        iconCls: 'fa-print',
-        bind: {
-            html: '{loremIpsum}'
+    }],
+
+    initItems: function() {
+        if(localStorage.getItem("LoggedIn") == "true") {
+            this.items = [{
+                    title: 'Process Scan',
+                    iconCls: 'fa-home',
+                    // The following grid shares a store with the classic version's grid as well!
+                    items: [{
+                        xtype: 'scanning',
+                        height: 600
+                    }]
+                }, {
+                    title: 'Record Data',
+                    iconCls: 'fa-home',
+                    // The following grid shares a store with the classic version's grid as well!
+                    items: [{
+                        xtype: 'mainlist'
+                    }]
+                }, {
+                    title: 'Print Ticket',
+                    iconCls: 'fa-print',
+                    bind: {
+                        html: '{loremIpsum}'
+                    }
+                }, {
+                    title: 'Settings',
+                    iconCls: 'fa-cog',
+                    bind: {
+                        html: '{loremIpsum}'
+                    }
+                }, {
+                    title: 'Line',
+                    // icon: 'resources/line.png',
+                    iconCls: 'fa-exchange',
+                    bind: {
+                        html: '{loremIpsum}'
+                    }
+                }, {
+                    title: 'Log',
+                    iconCls: 'fa-book',
+                    bind: {
+                        html: '{loremIpsum}'
+                    }
+            }]
         }
-    }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Line',
-        // icon: 'resources/line.png',
-        iconCls: 'fa-exchange',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }, {
-        title: 'Log',
-        iconCls: 'fa-book',
-        bind: {
-            html: '{loremIpsum}'
-        }
-    }]
+
+        this.callParent();
+    }
+
+    // items: [{
+    //     title: 'Record Data',
+    //     iconCls: 'fa-home',
+    //     // The following grid shares a store with the classic version's grid as well!
+    //     items: [{
+    //         xtype: 'mainlist'
+    //     }]
+    // }, {
+    //     title: 'Print Ticket',
+    //     iconCls: 'fa-print',
+    //     bind: {
+    //         html: '{loremIpsum}'
+    //     }
+    // }, {
+    //     title: 'Settings',
+    //     iconCls: 'fa-cog',
+    //     bind: {
+    //         html: '{loremIpsum}'
+    //     }
+    // }, {
+    //     title: 'Line',
+    //     // icon: 'resources/line.png',
+    //     iconCls: 'fa-exchange',
+    //     bind: {
+    //         html: '{loremIpsum}'
+    //     }
+    // }, {
+    //     title: 'Log',
+    //     iconCls: 'fa-book',
+    //     bind: {
+    //         html: '{loremIpsum}'
+    //     }
+    // }]
 });
