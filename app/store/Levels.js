@@ -1,5 +1,5 @@
 Ext.define('Mapros.store.Levels',{
-	extend: 'Mapros.store.Accesses'
+	extend: 'Mapros.store.Accesses',
 
 	alias: 'store.levels',
 

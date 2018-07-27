@@ -18,7 +18,8 @@ Ext.define('Mapros.Application', {
     stores: [
         // TODO: add global / shared stores here
         'Accesses',
-        'Departments'
+        'Departments',
+        'Levels'
     ],
 
     launch: function () {
