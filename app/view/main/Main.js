@@ -17,8 +17,9 @@ Ext.define('Mapros.view.main.Main', {
         'Mapros.view.main.MainModel',
         'Mapros.view.main.List',
         'Mapros.view.login.Login',
+        'Mapros.view.home.Toolbar',
         'Mapros.view.home.Scanning',
-        'Mapros.view.home.Toolbar'
+        'Mapros.view.config.Config'
         // 'Mapros.view.login.LoginController'
     ],
 
@@ -42,7 +43,7 @@ Ext.define('Mapros.view.main.Main', {
             },
             flex: 0
         },
-        iconCls: 'fa-th-list'
+        iconCls: 'fa-qrcode'
     },
 
     tabBar: {
@@ -63,7 +64,7 @@ Ext.define('Mapros.view.main.Main', {
     },
 
     defaults: {
-        bodyPadding: 20,
+        bodyPadding: 5,
         tabConfig: {
             plugins: 'responsive',
             responsiveConfig: {
@@ -79,6 +80,8 @@ Ext.define('Mapros.view.main.Main', {
             }
         }
     },
+
+    activeTab: 3,
 
     dockedItems: [{ xtype: 'homeToolbar' }],
 
@@ -118,9 +121,10 @@ Ext.define('Mapros.view.main.Main', {
                 }, {
                     title: 'Settings',
                     iconCls: 'fa-cog',
-                    bind: {
-                        html: '{loremIpsum}'
-                    }
+                    items: [{
+                        xtype: 'config',
+                        height: 600
+                    }]
                 }, {
                     title: 'Line',
                     // icon: 'resources/line.png',
@@ -139,38 +143,4 @@ Ext.define('Mapros.view.main.Main', {
 
         this.callParent();
     }
-
-    // items: [{
-    //     title: 'Record Data',
-    //     iconCls: 'fa-home',
-    //     // The following grid shares a store with the classic version's grid as well!
-    //     items: [{
-    //         xtype: 'mainlist'
-    //     }]
-    // }, {
-    //     title: 'Print Ticket',
-    //     iconCls: 'fa-print',
-    //     bind: {
-    //         html: '{loremIpsum}'
-    //     }
-    // }, {
-    //     title: 'Settings',
-    //     iconCls: 'fa-cog',
-    //     bind: {
-    //         html: '{loremIpsum}'
-    //     }
-    // }, {
-    //     title: 'Line',
-    //     // icon: 'resources/line.png',
-    //     iconCls: 'fa-exchange',
-    //     bind: {
-    //         html: '{loremIpsum}'
-    //     }
-    // }, {
-    //     title: 'Log',
-    //     iconCls: 'fa-book',
-    //     bind: {
-    //         html: '{loremIpsum}'
-    //     }
-    // }]
 });

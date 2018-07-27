@@ -6,8 +6,6 @@ Ext.define('Mapros.view.home.Scanning', {
 
     xtype: 'scanning',
 
-    frame : true,
-
     layout: {
         type: 'anchor',
     },
